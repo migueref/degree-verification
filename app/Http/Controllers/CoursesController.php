@@ -18,7 +18,7 @@ class CoursesController extends Controller
     }
     public function index()
     {
-        $courses = Course::paginate(10);;
+        $courses = Course::paginate(12);;
         return view('courses.index',['courses'=>$courses]);
     }
 

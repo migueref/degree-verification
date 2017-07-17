@@ -24,7 +24,7 @@
               {{ Form::text('folio','',['class' => 'form-control', 'placeholder'=>'Folio'])}}
           </div>
           <div class="form-group">
-            <div class="col-md-10 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-2 text-right">
               <button type="submit" class="btn btn-primary">Buscar</button>
             </div>
           </div>

@@ -10,5 +10,8 @@
 
     </div>
   @endforeach
+  <div class="col-xs-12">
+      {{ $courses->links() }}
+    </div>
 </div>
 @endsection

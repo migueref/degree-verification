@@ -37,7 +37,7 @@
               color: white!important;
             }
             .image-background {
-              background-image: url('../resources/assets/img/background.jpg')!important;
+              background-image: url('image/background.jpg')!important;
               background-repeat: no-repeat;
               background-size: cover;
             }
@@ -65,7 +65,7 @@
             }
         </style>
 </head>
-<body>
+<body class="image-background">
     <div id="app">
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
