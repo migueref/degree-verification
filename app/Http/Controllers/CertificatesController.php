@@ -16,9 +16,16 @@ class CertificatesController extends Controller
 
 
     }
+    public function search(Request $request)
+    {
+      echo "hola";
+    }
     public function index()
     {
-        return view('certificates.index');
+        $folio = \Request::get('folio');
+        $certificate = Certificate::where('folio',$folio)
+        ->first();
+        return view('certificates.index',['certificado'=>$certificate]);
     }
 
     /**
@@ -50,7 +57,7 @@ class CertificatesController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
