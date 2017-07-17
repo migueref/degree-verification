@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Certificate;
+use App\Course;
 
 class CertificatesController extends Controller
 {
@@ -13,9 +14,9 @@ class CertificatesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct() {
-
-
+       $this->middleware('auth', ['except' => ['index']]);
     }
+
     public function search(Request $request)
     {
       echo "hola";
@@ -35,7 +36,8 @@ class CertificatesController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Course::pluck('name','id');
+        return view('certificates.create',['courses'=>$courses]);
     }
 
     /**
@@ -46,7 +48,18 @@ class CertificatesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $certificate = new Certificate;
+        $certificate->folio = $request->folio;
+        $certificate->firstname = $request->firstname;
+        $certificate->lastname = $request->lastname;
+        $certificate->course_id = $request->course_id;
+        $certificate->date_of_issue = $request->date_of_issue;
+        if ( $certificate->save() ) {
+          return redirect('/certificates');
+        } else {
+          return view('certificates.create');
+        }
+
     }
 
     /**
